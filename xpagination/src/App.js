@@ -23,7 +23,7 @@ function App() {
       setView(response.data.slice(0, 10));
     }catch(e)
     {
-      alert(e.message);
+      alert("failed to fetch data");
     }
     };
     run();
