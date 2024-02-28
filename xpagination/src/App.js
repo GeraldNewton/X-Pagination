@@ -7,8 +7,10 @@ function App() {
   const [page, setPage] = useState(1);
   useEffect(() => {
     let run = async () => {
-      let response = await axios.get(
-        "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
+      try{
+
+        let response = await axios.get(
+          "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.jso"
       );
       console.log(response.data);
       setData({
@@ -19,6 +21,10 @@ function App() {
         5: response.data.slice(40),
       });
       setView(response.data.slice(0, 10));
+    }catch(e)
+    {
+      alert(e.message);
+    }
     };
     run();
   }, []);
